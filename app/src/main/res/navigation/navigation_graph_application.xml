@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph_application"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.rxnnct.yesorno.screens.MainFragment"
+        android:label="MainFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="ru.rxnnct.yesorno.screens.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@+id/navigation_graph_application"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment"
+            app:popUpTo="@+id/navigation_graph_application"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorialFragment"
+        android:name="ru.rxnnct.yesorno.screens.TutorialFragment"
+        android:label="TutorialFragment">
+        <action
+            android:id="@+id/action_tutorialFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
