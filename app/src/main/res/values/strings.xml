@@ -3,4 +3,8 @@
     <string name="splash_fragment">Splash</string>
     <string name="tutorial_fragment">Tutorial</string>
     <string name="main_fragment">Main</string>
+    <string name="agree">Agree</string>
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="main_menu">Main menu</string>
 </resources>
