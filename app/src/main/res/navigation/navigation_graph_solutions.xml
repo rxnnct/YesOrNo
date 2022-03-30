@@ -6,8 +6,12 @@
 
     <fragment
         android:id="@+id/mainMenuFragment"
-        android:name="ru.rxnnct.yesorno.screens.MainMenuFragment"
-        android:label="MainMenuFragment" />
+        android:name="ru.rxnnct.yesorno.screens.SolutionsFragment"
+        android:label="MainMenuFragment" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_yesNoSolutionFragment"
+            app:destination="@id/yesNoSolutionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="ru.rxnnct.yesorno.screens.HistoryFragment"
@@ -16,4 +20,8 @@
         android:id="@+id/settingsFragment"
         android:name="ru.rxnnct.yesorno.screens.SettingsFragment"
         android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/yesNoSolutionFragment"
+        android:name="ru.rxnnct.yesorno.screens.solutions.YesNoSolutionFragment"
+        android:label="YesNoSolutionFragment" />
 </navigation>
