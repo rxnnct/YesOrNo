@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph_main_menu.xml"
+    app:startDestination="@id/solutionFragment">
+
+    <fragment
+        android:id="@+id/solutionFragment"
+        android:name="ru.rxnnct.yesorno.screens.SolutionsFragment"
+        android:label="SolutionFragment">
+        <action
+            android:id="@+id/action_mainMenuFragment_to_yesNoSolutionFragment"
+            app:destination="@id/yesNoSolutionFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="ru.rxnnct.yesorno.screens.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ru.rxnnct.yesorno.screens.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/yesNoSolutionFragment"
+        android:name="ru.rxnnct.yesorno.screens.solutions.YesNoSolutionFragment"
+        android:label="YesNoSolutionFragment" />
+</navigation>
