@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/fragmentMainMenuText"
+        android:id="@+id/fragmentSolutionsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/solutions"
@@ -23,5 +23,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentMainMenuText" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentSolutionsText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

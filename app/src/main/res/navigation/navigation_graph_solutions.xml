@@ -2,15 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_graph_main_menu.xml"
-    app:startDestination="@id/mainMenuFragment">
+    app:startDestination="@id/solutionFragment">
 
     <fragment
-        android:id="@+id/mainMenuFragment"
+        android:id="@+id/solutionFragment"
         android:name="ru.rxnnct.yesorno.screens.SolutionsFragment"
-        android:label="MainMenuFragment" >
+        android:label="SolutionFragment">
         <action
             android:id="@+id/action_mainMenuFragment_to_yesNoSolutionFragment"
-            app:destination="@id/yesNoSolutionFragment" />
+            app:destination="@id/yesNoSolutionFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
