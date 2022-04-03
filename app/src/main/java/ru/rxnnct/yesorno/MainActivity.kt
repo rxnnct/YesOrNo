@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.room.Room
-import ru.rxnnct.yesorno.data.AppDatabase
+import ru.rxnnct.yesorno.model.AppDatabase
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
