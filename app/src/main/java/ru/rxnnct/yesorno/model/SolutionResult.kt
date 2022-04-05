@@ -13,6 +13,5 @@ data class SolutionResult (
     @PrimaryKey
     val id: Int,
     @ColumnInfo(name = "solution_type")
-    val solutionType: SolutionType
+    val solutionType: String
 )
-
