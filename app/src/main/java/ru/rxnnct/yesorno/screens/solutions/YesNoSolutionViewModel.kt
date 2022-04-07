@@ -1,13 +1,24 @@
 package ru.rxnnct.yesorno.screens.solutions
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
+import kotlin.random.Random
 
 class YesNoSolutionViewModel : ViewModel() {
-    init {
+
+    var currentQuestion = ""
+    var isDone = false
+
+    private fun solve() {
+        var result = "$currentQuestion ${Random.nextBoolean()}"
+        isDone = true
     }
 
-    override fun onCleared() {
-        super.onCleared()
+    fun onSolve() {
+        solve()
     }
+
+    fun onNext() {
+
+    }
+
 }
