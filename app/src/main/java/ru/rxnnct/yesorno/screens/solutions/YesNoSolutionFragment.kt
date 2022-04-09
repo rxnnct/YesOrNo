@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -22,12 +23,14 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
         viewModel = ViewModelProvider(this).get(YesNoSolutionViewModel::class.java)
         fragmentView = view
 
-        view.findViewById<Button>(R.id.solve).setOnClickListener{ onSolve() }
-        view.findViewById<Button>(R.id.next).setOnClickListener{ onNext() }
+        fragmentView.findViewById<Button>(R.id.solve).setOnClickListener{ onSolve() }
+        fragmentView.findViewById<Button>(R.id.next).setOnClickListener{ onNext() }
     }
 
     private fun onSolve() {
+        viewModel.question = fragmentView.findViewById<EditText>(R.id.question).text.toString()
         viewModel.onSolve()
+        fragmentView.findViewById<TextView>(R.id.result).text = viewModel.result
         updateUiToSolved()
     }
 

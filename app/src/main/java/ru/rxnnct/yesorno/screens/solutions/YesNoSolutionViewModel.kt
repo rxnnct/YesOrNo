@@ -5,12 +5,11 @@ import kotlin.random.Random
 
 class YesNoSolutionViewModel : ViewModel() {
 
-    var currentQuestion = ""
-    var isDone = false
+    var question = ""
+    var result = ""
 
-    private fun solve() {
-        var result = "$currentQuestion ${Random.nextBoolean()}"
-        isDone = true
+    private fun solve(){
+        result = "$question ${Random.nextBoolean()}"
     }
 
     fun onSolve() {
