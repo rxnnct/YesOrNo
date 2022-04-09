@@ -1,19 +1,17 @@
 package ru.rxnnct.yesorno.screens.solutions
 
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import ru.rxnnct.yesorno.R
+import ru.rxnnct.yesorno.screens.hideKeyboard
 
-class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
+
+class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
 
     private lateinit var viewModel: YesNoSolutionViewModel
     private lateinit var fragmentView: View
@@ -24,8 +22,8 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
         viewModel = ViewModelProvider(this).get(YesNoSolutionViewModel::class.java)
         fragmentView = view
 
-        fragmentView.findViewById<Button>(R.id.solve).setOnClickListener{ onSolve() }
-        fragmentView.findViewById<Button>(R.id.next).setOnClickListener{ onNext() }
+        fragmentView.findViewById<Button>(R.id.solve).setOnClickListener { onSolve() }
+        fragmentView.findViewById<Button>(R.id.next).setOnClickListener { onNext() }
     }
 
     private fun onSolve() {
@@ -40,11 +38,14 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
     }
 
     private fun updateUiToSolved() {
-        fragmentView.findViewById<TextView>(R.id.result).text = viewModel.result
+        val resultTextView: TextView = fragmentView.findViewById(R.id.result)
+        resultTextView.text = viewModel.result
         fragmentView.findViewById<EditText>(R.id.question).visibility = View.GONE
         fragmentView.findViewById<Button>(R.id.solve).visibility = View.GONE
-        fragmentView.findViewById<TextView>(R.id.result).visibility = View.VISIBLE
+        resultTextView.visibility = View.VISIBLE
         fragmentView.findViewById<Button>(R.id.next).visibility = View.VISIBLE
+        fragmentView.hideKeyboard()
+
     }
 
     private fun updateUiToNext() {
@@ -54,5 +55,7 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
         fragmentView.findViewById<TextView>(R.id.result).visibility = View.GONE
         fragmentView.findViewById<Button>(R.id.next).visibility = View.GONE
     }
+
+
 
 }
