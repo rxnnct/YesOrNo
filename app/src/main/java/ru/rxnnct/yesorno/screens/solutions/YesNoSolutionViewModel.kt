@@ -10,6 +10,12 @@ class YesNoSolutionViewModel : ViewModel() {
 
     private fun solve(){
         result = "$question ${Random.nextBoolean()}"
+        // TODO: save to room
+    }
+
+    private fun next(){
+        question = ""
+        result = ""
     }
 
     fun onSolve() {
@@ -17,7 +23,7 @@ class YesNoSolutionViewModel : ViewModel() {
     }
 
     fun onNext() {
-
+        next()
     }
 
 }

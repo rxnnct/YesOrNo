@@ -1,6 +1,7 @@
 package ru.rxnnct.yesorno.screens.solutions
 
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -30,7 +31,6 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
     private fun onSolve() {
         viewModel.question = fragmentView.findViewById<EditText>(R.id.question).text.toString()
         viewModel.onSolve()
-        fragmentView.findViewById<TextView>(R.id.result).text = viewModel.result
         updateUiToSolved()
     }
 
@@ -40,6 +40,7 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
     }
 
     private fun updateUiToSolved() {
+        fragmentView.findViewById<TextView>(R.id.result).text = viewModel.result
         fragmentView.findViewById<EditText>(R.id.question).visibility = View.GONE
         fragmentView.findViewById<Button>(R.id.solve).visibility = View.GONE
         fragmentView.findViewById<TextView>(R.id.result).visibility = View.VISIBLE
@@ -47,6 +48,7 @@ class YesNoSolutionFragment: Fragment(R.layout.fragment_yes_no_solution) {
     }
 
     private fun updateUiToNext() {
+        fragmentView.findViewById<EditText>(R.id.question).text.clear()
         fragmentView.findViewById<EditText>(R.id.question).visibility = View.VISIBLE
         fragmentView.findViewById<Button>(R.id.solve).visibility = View.VISIBLE
         fragmentView.findViewById<TextView>(R.id.result).visibility = View.GONE
