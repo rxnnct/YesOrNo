@@ -1,4 +1,4 @@
-package ru.rxnnct.yesorno.data
+package ru.rxnnct.yesorno.model
 
 import androidx.room.Dao
 import androidx.room.Query
