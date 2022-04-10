@@ -1,6 +1,8 @@
 package ru.rxnnct.yesorno.screens.solutions
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -34,10 +36,22 @@ class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
 
         solveButton.setOnClickListener { onSolve() }
         nextButton.setOnClickListener { onNext() }
+
+        questionEditText.addTextChangedListener(object: TextWatcher {
+            override fun onTextChanged(s:CharSequence, start:Int, before:Int, count:Int) {
+                solveButton.isEnabled = s.toString().trim { it <= ' ' }.isNotEmpty()
+            }
+            override fun beforeTextChanged(s:CharSequence, start:Int, count:Int, after:Int) {
+                // TODO Auto-generated method stub
+            }
+            override fun afterTextChanged(s: Editable) {
+                // TODO Auto-generated method stub
+            }
+        })
     }
 
     private fun onSolve() {
-        viewModel.question = fragmentView.findViewById<EditText>(R.id.question).text.toString()
+        viewModel.question = questionEditText.text.toString()
         viewModel.onSolve()
         updateUiToSolved()
     }
