@@ -25,5 +25,4 @@ class YesNoSolutionViewModel : ViewModel() {
     fun onNext() {
         next()
     }
-
 }
