@@ -11,11 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // TODO: move to viewmodel
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-yes-or-no"
-        ).allowMainThreadQueries().build()
+        // TODO: remove
+        val db = AppDatabase.getInstance(applicationContext)
 
         val configDao = db.configDao()
         val isConfigExists = configDao.isConfigExists()

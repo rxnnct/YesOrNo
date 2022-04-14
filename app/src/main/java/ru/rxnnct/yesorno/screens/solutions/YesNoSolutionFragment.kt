@@ -1,6 +1,8 @@
 package ru.rxnnct.yesorno.screens.solutions
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -16,18 +18,40 @@ class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
     private lateinit var viewModel: YesNoSolutionViewModel
     private lateinit var fragmentView: View
 
+    private lateinit var resultTextView: TextView
+    private lateinit var questionEditText: EditText
+    private lateinit var solveButton: Button
+    private lateinit var nextButton: Button
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(YesNoSolutionViewModel::class.java)
         fragmentView = view
 
-        fragmentView.findViewById<Button>(R.id.solve).setOnClickListener { onSolve() }
-        fragmentView.findViewById<Button>(R.id.next).setOnClickListener { onNext() }
+        resultTextView = fragmentView.findViewById(R.id.result)
+        questionEditText = fragmentView.findViewById(R.id.question)
+        solveButton = fragmentView.findViewById(R.id.solve)
+        nextButton = fragmentView.findViewById(R.id.next)
+
+        solveButton.setOnClickListener { onSolve() }
+        nextButton.setOnClickListener { onNext() }
+
+        questionEditText.addTextChangedListener(object: TextWatcher {
+            override fun onTextChanged(s:CharSequence, start:Int, before:Int, count:Int) {
+                solveButton.isEnabled = s.toString().trim { it <= ' ' }.isNotEmpty()
+            }
+            override fun beforeTextChanged(s:CharSequence, start:Int, count:Int, after:Int) {
+                // TODO Auto-generated method stub
+            }
+            override fun afterTextChanged(s: Editable) {
+                // TODO Auto-generated method stub
+            }
+        })
     }
 
     private fun onSolve() {
-        viewModel.question = fragmentView.findViewById<EditText>(R.id.question).text.toString()
+        viewModel.question = questionEditText.text.toString()
         viewModel.onSolve()
         updateUiToSolved()
     }
@@ -38,24 +62,23 @@ class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
     }
 
     private fun updateUiToSolved() {
-        val resultTextView: TextView = fragmentView.findViewById(R.id.result)
         resultTextView.text = viewModel.result
-        fragmentView.findViewById<EditText>(R.id.question).visibility = View.GONE
-        fragmentView.findViewById<Button>(R.id.solve).visibility = View.GONE
+
+        questionEditText.visibility = View.GONE
+        solveButton.visibility = View.GONE
         resultTextView.visibility = View.VISIBLE
-        fragmentView.findViewById<Button>(R.id.next).visibility = View.VISIBLE
+        nextButton.visibility = View.VISIBLE
+
         fragmentView.hideKeyboard()
 
     }
 
     private fun updateUiToNext() {
-        fragmentView.findViewById<EditText>(R.id.question).text.clear()
-        fragmentView.findViewById<EditText>(R.id.question).visibility = View.VISIBLE
-        fragmentView.findViewById<Button>(R.id.solve).visibility = View.VISIBLE
-        fragmentView.findViewById<TextView>(R.id.result).visibility = View.GONE
-        fragmentView.findViewById<Button>(R.id.next).visibility = View.GONE
+        questionEditText.text.clear()
+
+        questionEditText.visibility = View.VISIBLE
+        solveButton.visibility = View.VISIBLE
+        resultTextView.visibility = View.GONE
+        nextButton.visibility = View.GONE
     }
-
-
-
 }
