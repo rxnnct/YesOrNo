@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val db = AppDatabase.getInstance(applicationContext)
 
         val configDao = db.configDao()
-        val isConfigExists = configDao.isConfigExists()
+        val isConfigExists = configDao.isSettingsExists()
 
         if (isConfigExists){
             Log.i("RXNNCT", "YES")
