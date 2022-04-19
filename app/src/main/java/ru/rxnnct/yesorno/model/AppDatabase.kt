@@ -7,12 +7,12 @@ import androidx.room.RoomDatabase
 
 // TODO: migrations 
 @Database(
-    entities = [Config::class, SolutionResult::class],
+    entities = [Settings::class, SolutionResult::class],
     version = 1,
     exportSchema = false
 )
 public abstract class AppDatabase : RoomDatabase() {
-    abstract fun configDao(): ConfigDao
+    abstract fun configDao(): SettingsDao
     abstract fun solutionResultDao(): SolutionResultDao
 
     companion object {
