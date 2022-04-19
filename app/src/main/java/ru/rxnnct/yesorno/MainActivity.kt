@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         // TODO: remove
         val db = AppDatabase.getInstance(applicationContext)
 
-        val configDao = db.configDao()
+        val configDao = db.settingsDao()
         val isConfigExists = configDao.isSettingsExists()
 
         if (isConfigExists){

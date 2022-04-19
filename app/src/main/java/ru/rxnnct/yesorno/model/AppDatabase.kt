@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
     exportSchema = false
 )
 public abstract class AppDatabase : RoomDatabase() {
-    abstract fun configDao(): SettingsDao
+    abstract fun settingsDao(): SettingsDao
     abstract fun solutionResultDao(): SolutionResultDao
 
     companion object {
