@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.room.Room
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import ru.rxnnct.yesorno.model.AppDatabase
 
 class MainActivity : AppCompatActivity() {
@@ -12,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // TODO: remove
-        val db = AppDatabase.getInstance(applicationContext)
+        val db = AppDatabase.getInstance(applicationContext, CoroutineScope(SupervisorJob()))
 
         val configDao = db.settingsDao()
         val isConfigExists = configDao.isSettingsExists()

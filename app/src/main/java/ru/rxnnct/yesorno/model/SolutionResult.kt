@@ -20,4 +20,5 @@ data class SolutionResult (
     val result: String
 
     // TODO:  datetime col
+
 )
