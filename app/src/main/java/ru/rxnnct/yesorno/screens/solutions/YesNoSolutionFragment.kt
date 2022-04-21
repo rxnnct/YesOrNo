@@ -8,14 +8,18 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import ru.rxnnct.yesorno.R
+import ru.rxnnct.yesorno.YesOrNoApplication
 import ru.rxnnct.yesorno.screens.hideKeyboard
 
 
 class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
 
-    private lateinit var viewModel: YesNoSolutionViewModel
+    private val yesNoSolutionViewModel: YesNoSolutionViewModel by viewModels {
+        YesNoSolutionViewModelFactory((activity?.application as YesOrNoApplication).solutionResultRepository)
+    }
+
     private lateinit var fragmentView: View
 
     private lateinit var resultTextView: TextView
@@ -26,9 +30,7 @@ class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(YesNoSolutionViewModel::class.java)
         fragmentView = view
-
         resultTextView = fragmentView.findViewById(R.id.result)
         questionEditText = fragmentView.findViewById(R.id.question)
         solveButton = fragmentView.findViewById(R.id.solve)
@@ -51,18 +53,18 @@ class YesNoSolutionFragment : Fragment(R.layout.fragment_yes_no_solution) {
     }
 
     private fun onSolve() {
-        viewModel.question = questionEditText.text.toString()
-        viewModel.onSolve()
+        yesNoSolutionViewModel.question = questionEditText.text.toString()
+        yesNoSolutionViewModel.onSolve()
         updateUiToSolved()
     }
 
     private fun onNext() {
-        viewModel.onNext()
+        yesNoSolutionViewModel.onNext()
         updateUiToNext()
     }
 
     private fun updateUiToSolved() {
-        resultTextView.text = viewModel.result
+        resultTextView.text = yesNoSolutionViewModel.result
 
         questionEditText.visibility = View.GONE
         solveButton.visibility = View.GONE

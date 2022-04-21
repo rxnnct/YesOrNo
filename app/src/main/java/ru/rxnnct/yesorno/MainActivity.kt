@@ -2,9 +2,6 @@ package ru.rxnnct.yesorno
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.room.Room
-import ru.rxnnct.yesorno.model.AppDatabase
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,16 +9,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // TODO: remove
-        val db = AppDatabase.getInstance(applicationContext)
+//        val db = AppDatabase.getInstance(applicationContext, CoroutineScope(SupervisorJob()))
 
-        val configDao = db.configDao()
-        val isConfigExists = configDao.isSettingsExists()
+//        val configDao = db.settingsDao()
+//        val isConfigExists = configDao.isSettingsExists()
 
-        if (isConfigExists){
-            Log.i("RXNNCT", "YES")
-        } else {
-            Log.i("RXNNCT", "NO")
-        }
+//        if (isConfigExists){
+//            Log.i("RXNNCT", "YES")
+//        } else {
+//            Log.i("RXNNCT", "NO")
+//        }
     }
 
     // TODO: remove 

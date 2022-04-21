@@ -15,6 +15,6 @@ interface SolutionResultDao {
     suspend fun insert(word: SolutionResult)
 
     // TODO: delete oldest:
-    @Query("DELETE FROM solution_result_table")
-    suspend fun deleteAll()
+//    @Query("DELETE FROM solution_result_table")
+//    suspend fun deleteAll()
 }
