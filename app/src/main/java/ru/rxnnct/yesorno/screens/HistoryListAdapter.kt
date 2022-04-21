@@ -19,7 +19,7 @@ class HistoryListAdapter : ListAdapter<SolutionResult, SolutionResultViewHolder>
 
     override fun onBindViewHolder(holder: SolutionResultViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.solutionType) /////////67567в6гв6565
+        holder.bind(current.solutionType + " | " + current.question + " | " + current.result)
     }
 
     class SolutionResultViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

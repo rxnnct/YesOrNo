@@ -10,15 +10,17 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "solution_result_table")
 data class SolutionResult (
-    @PrimaryKey
-    val id: Int,
     @ColumnInfo(name = "solution_type")
-    val solutionType: String,
+    var solutionType: String,
     @ColumnInfo(name = "question")
-    val question: String,
+    var question: String,
     @ColumnInfo(name = "result")
-    val result: String
+    var result: String
 
     // TODO:  datetime col
 
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Int? = null
+}
