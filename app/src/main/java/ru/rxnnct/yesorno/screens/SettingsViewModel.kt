@@ -11,14 +11,6 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     fun update(settings: Settings) = viewModelScope.launch {
         repository.update(settings)
     }
-
-    fun insert(settings: Settings) = viewModelScope.launch {
-        repository.insert(settings)
-    }
-
-    fun isSettingsExists() = viewModelScope.launch {
-        repository.isSettingsExists()
-    }
 }
 
 class SettingsViewModelFactory(private val repository: SettingsRepository) : ViewModelProvider.Factory {

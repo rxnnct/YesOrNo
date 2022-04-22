@@ -18,8 +18,8 @@ interface SettingsDao {
     @Update
     fun update(settings: Settings)
 
-    @Query("SELECT EXISTS(SELECT 1 FROM settings_table WHERE id = 1)")
-    fun isSettingsExists(): Boolean
+    @Query("DELETE FROM settings_table")
+    suspend fun deleteAll()
 
 //    @Query("SELECT tutorial_completed FROM config_table WHERE id = 1")
 //    fun isTutorialCompleted(): Boolean

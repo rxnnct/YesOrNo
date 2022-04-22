@@ -18,10 +18,4 @@ class SettingsRepository(private val settingsDao: SettingsDao) {
     suspend fun insert(settings: Settings) {
         settingsDao.insert(settings)
     }
-
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
-    suspend fun isSettingsExists() {
-        settingsDao.isSettingsExists()
-    }
 }

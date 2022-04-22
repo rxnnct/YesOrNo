@@ -31,12 +31,13 @@ class YesNoSolutionViewModel(private val repository: SolutionResultRepository) :
         next()
     }
 
-    fun insert(solutionResult: SolutionResult) = viewModelScope.launch {
+    private fun insert(solutionResult: SolutionResult) = viewModelScope.launch {
         repository.insert(solutionResult)
     }
 }
 
-class YesNoSolutionViewModelFactory(private val repository: SolutionResultRepository) : ViewModelProvider.Factory {
+class YesNoSolutionViewModelFactory(private val repository: SolutionResultRepository) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(YesNoSolutionViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
