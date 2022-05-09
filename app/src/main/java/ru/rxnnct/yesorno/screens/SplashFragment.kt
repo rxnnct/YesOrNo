@@ -1,13 +1,15 @@
 package ru.rxnnct.yesorno.screens
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
-import ru.rxnnct.yesorno.MainActivity
 import ru.rxnnct.yesorno.R
+import ru.rxnnct.yesorno.YesOrNoApplication
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {
 
@@ -15,12 +17,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
 
         view.postDelayed({
-
-            val action: Int = if (MainActivity.isTutorialEnded == "true") {
-                R.id.action_splashFragment_to_mainFragment
-            } else {
-                R.id.action_splashFragment_to_tutorialFragment
-            }
+            val action: Int = R.id.action_splashFragment_to_mainFragment
 
             findNavController().navigate(
                 action,
