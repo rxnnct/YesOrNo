@@ -17,18 +17,5 @@
             app:destination="@id/mainFragment"
             app:popUpTo="@+id/navigation_graph_application"
             app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_splashFragment_to_tutorialFragment"
-            app:destination="@id/tutorialFragment"
-            app:popUpTo="@+id/navigation_graph_application"
-            app:popUpToInclusive="true" />
-    </fragment>
-    <fragment
-        android:id="@+id/tutorialFragment"
-        android:name="ru.rxnnct.yesorno.screens.TutorialFragment"
-        android:label="TutorialFragment">
-        <action
-            android:id="@+id/action_tutorialFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

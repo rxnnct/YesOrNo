@@ -9,7 +9,7 @@
         android:enabled="true"
         android:title="@string/history" />
     <item
-        android:id="@+id/settingsFragment"
+        android:id="@+id/tutorialFragment"
         android:enabled="true"
-        android:title="@string/settings" />
+        android:title="@string/tutorial" />
 </menu>
