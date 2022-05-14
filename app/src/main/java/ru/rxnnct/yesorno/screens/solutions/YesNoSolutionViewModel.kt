@@ -1,38 +1,22 @@
 package ru.rxnnct.yesorno.screens.solutions
 
 import androidx.lifecycle.*
-import kotlinx.coroutines.launch
 import ru.rxnnct.yesorno.model.SolutionResult
 import ru.rxnnct.yesorno.model.SolutionResultRepository
 import ru.rxnnct.yesorno.model.SolutionType
 import kotlin.random.Random
 
-class YesNoSolutionViewModel(private val repository: SolutionResultRepository) : ViewModel() {
+class YesNoSolutionViewModel(repository: SolutionResultRepository) : BaseSolutionViewModel(repository) {
 
-    var question = ""
-    var result = ""
-
-    private fun solve() {
+    override fun solve() {
         result = "${Random.nextBoolean()}"
         val solutionResult = SolutionResult(SolutionType.YES_OR_NO.solutionName, question, result)
         insert(solutionResult)
     }
 
-    private fun next() {
+    override fun next() {
         question = ""
         result = ""
-    }
-
-    fun onSolve() {
-        solve()
-    }
-
-    fun onNext() {
-        next()
-    }
-
-    private fun insert(solutionResult: SolutionResult) = viewModelScope.launch {
-        repository.insert(solutionResult)
     }
 }
 
