@@ -6,7 +6,8 @@ import ru.rxnnct.yesorno.model.SolutionResultRepository
 import ru.rxnnct.yesorno.model.SolutionType
 import kotlin.random.Random
 
-class YesNoSolutionViewModel(repository: SolutionResultRepository) : BaseSolutionViewModel(repository) {
+class YesNoSolutionViewModel(repository: SolutionResultRepository) :
+    BaseSolutionViewModel(repository) {
 
     override fun solve() {
         result = "${Random.nextBoolean()}"
