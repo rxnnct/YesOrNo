@@ -1,6 +1,7 @@
 package ru.rxnnct.yesorno.screens.solutions
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import ru.rxnnct.yesorno.model.SolutionResult

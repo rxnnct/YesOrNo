@@ -12,6 +12,12 @@
             android:id="@+id/action_mainMenuFragment_to_yesNoSolutionFragment"
             app:destination="@id/yesNoSolutionFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_solutionFragment_to_coinSolutionFragment"
+            app:destination="@id/coinSolutionFragment" />
+        <action
+            android:id="@+id/action_solutionFragment_to_diceSolutionFragment"
+            app:destination="@id/diceSolutionFragment" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -25,4 +31,12 @@
         android:id="@+id/tutorialFragment"
         android:name="ru.rxnnct.yesorno.screens.TutorialFragment"
         android:label="TutorialFragment" />
+    <fragment
+        android:id="@+id/coinSolutionFragment"
+        android:name="ru.rxnnct.yesorno.screens.solutions.CoinSolutionFragment"
+        android:label="CoinSolutionFragment" />
+    <fragment
+        android:id="@+id/diceSolutionFragment"
+        android:name="ru.rxnnct.yesorno.screens.solutions.DiceSolutionFragment"
+        android:label="DiceSolutionFragment" />
 </navigation>

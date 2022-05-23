@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fragmentSolutionsText" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/coinButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Coin"
@@ -35,11 +35,11 @@
         app:layout_constraintTop_toBottomOf="@+id/yesNoButton" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/diceButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/coinButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

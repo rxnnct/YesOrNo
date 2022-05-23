@@ -21,6 +21,7 @@ class YesNoSolutionViewModel(repository: SolutionResultRepository) :
     }
 }
 
+// TODO: extract to base
 class YesNoSolutionViewModelFactory(private val repository: SolutionResultRepository) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

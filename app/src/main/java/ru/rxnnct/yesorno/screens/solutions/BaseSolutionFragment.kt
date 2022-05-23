@@ -15,7 +15,6 @@ abstract class BaseSolutionFragment(@LayoutRes contentLayoutId: Int = 0) : Fragm
 
     protected lateinit var fragmentView: View
 
-    protected lateinit var questionEditText: EditText
     protected lateinit var resultTextView: TextView
     protected lateinit var solveButton: Button
     protected lateinit var nextButton: Button
@@ -30,20 +29,6 @@ abstract class BaseSolutionFragment(@LayoutRes contentLayoutId: Int = 0) : Fragm
 
         solveButton.setOnClickListener { onSolve() }
         nextButton.setOnClickListener { onNext() }
-
-        questionEditText = fragmentView.findViewById(R.id.question)
-
-        questionEditText.addTextChangedListener(object: TextWatcher {
-            override fun onTextChanged(s:CharSequence, start:Int, before:Int, count:Int) {
-                solveButton.isEnabled = s.toString().trim { it <= ' ' }.isNotEmpty()
-            }
-            override fun beforeTextChanged(s:CharSequence, start:Int, count:Int, after:Int) {
-                // TODO Auto-generated method stub
-            }
-            override fun afterTextChanged(s: Editable) {
-                // TODO Auto-generated method stub
-            }
-        })
     }
 
     protected abstract fun onSolve()
