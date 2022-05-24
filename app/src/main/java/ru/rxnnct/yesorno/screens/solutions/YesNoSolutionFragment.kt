@@ -22,7 +22,6 @@ class YesNoSolutionFragment : BaseSolutionFragment(R.layout.fragment_yes_no_solu
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         questionEditText = fragmentView.findViewById(R.id.question)
 
         questionEditText.addTextChangedListener(object: TextWatcher {
