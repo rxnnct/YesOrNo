@@ -9,6 +9,8 @@ import kotlin.random.Random
 class YesNoSolutionViewModel(repository: SolutionResultRepository) :
     BaseSolutionViewModel(repository) {
 
+    var question = ""
+
     override fun solve() {
         result = "${Random.nextBoolean()}"
         val solutionResult = SolutionResult(SolutionType.YES_OR_NO.solutionName, question, result)

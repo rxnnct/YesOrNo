@@ -10,6 +10,8 @@ import kotlin.random.Random
 class DiceSolutionViewModel(repository: SolutionResultRepository) :
     BaseSolutionViewModel(repository) {
 
+    var question = ""
+
     override fun solve() {
         result = "${(1..6).random()}"
         val solutionResult = SolutionResult(SolutionType.DICE.solutionName, question, result)

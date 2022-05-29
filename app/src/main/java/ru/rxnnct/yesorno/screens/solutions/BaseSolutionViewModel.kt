@@ -9,7 +9,6 @@ import ru.rxnnct.yesorno.model.SolutionResultRepository
 
 abstract class BaseSolutionViewModel(private val repository: SolutionResultRepository) : ViewModel() {
 
-    var question = ""
     var result = ""
 
     abstract fun solve()

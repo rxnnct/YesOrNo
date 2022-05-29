@@ -2,17 +2,33 @@ package ru.rxnnct.yesorno.screens.solutions
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import ru.rxnnct.yesorno.model.SolutionResult
 import ru.rxnnct.yesorno.model.SolutionResultRepository
+import ru.rxnnct.yesorno.model.SolutionType
+import kotlin.random.Random
 
 class CoinSolutionViewModel(repository: SolutionResultRepository) :
     BaseSolutionViewModel(repository) {
 
+
+    var headQuestion = ""
+    var tailQuestion = ""
+
     override fun solve() {
-        TODO("Not yet implemented")
+        result = if (Random.nextBoolean()) {
+            headQuestion
+        } else {
+            tailQuestion
+        }
+        val solutionResult = SolutionResult(SolutionType.YES_OR_NO.solutionName,
+            "$headQuestion or $tailQuestion", result)
+        insert(solutionResult)
     }
 
     override fun next() {
-        TODO("Not yet implemented")
+        headQuestion = ""
+        tailQuestion = ""
+        result = ""
     }
 }
 
