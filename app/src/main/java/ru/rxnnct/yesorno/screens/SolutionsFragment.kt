@@ -15,5 +15,13 @@ class SolutionsFragment: Fragment(R.layout.fragment_solutions) {
         view.findViewById<Button>(R.id.yesNoButton).setOnClickListener{
             findNavController().navigate(R.id.action_mainMenuFragment_to_yesNoSolutionFragment)
         }
+
+        view.findViewById<Button>(R.id.coinButton).setOnClickListener{
+            findNavController().navigate(R.id.action_solutionFragment_to_coinSolutionFragment)
+        }
+
+        view.findViewById<Button>(R.id.diceButton).setOnClickListener{
+            findNavController().navigate(R.id.action_solutionFragment_to_diceSolutionFragment)
+        }
     }
 }

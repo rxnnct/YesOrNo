@@ -10,13 +10,12 @@ import ru.rxnnct.yesorno.R
 import ru.rxnnct.yesorno.YesOrNoApplication
 import ru.rxnnct.yesorno.screens.hideKeyboard
 
-
-class YesNoSolutionFragment : BaseSolutionFragment(R.layout.fragment_yes_no_solution) {
+class DiceSolutionFragment : BaseSolutionFragment(R.layout.fragment_dice_solution) {
 
     private lateinit var questionEditText: EditText
 
-    private val yesNoSolutionViewModel: YesNoSolutionViewModel by viewModels {
-        YesNoSolutionViewModelFactory((activity?.application as YesOrNoApplication).solutionResultRepository)
+    private val diceSolutionViewModel: DiceSolutionViewModel by viewModels {
+        DiceSolutionViewModelFactory((activity?.application as YesOrNoApplication).solutionResultRepository)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,18 +37,18 @@ class YesNoSolutionFragment : BaseSolutionFragment(R.layout.fragment_yes_no_solu
     }
 
     override fun onSolve() {
-        yesNoSolutionViewModel.question = questionEditText.text.toString()
-        yesNoSolutionViewModel.solve()
+        diceSolutionViewModel.question = questionEditText.text.toString()
+        diceSolutionViewModel.solve()
         updateUiToSolved()
     }
 
     override fun onNext() {
-        yesNoSolutionViewModel.next()
+        diceSolutionViewModel.next()
         updateUiToNext()
     }
 
     override fun updateUiToSolved() {
-        resultTextView.text = yesNoSolutionViewModel.result
+        resultTextView.text = diceSolutionViewModel.result
 
         questionEditText.visibility = View.GONE
         solveButton.visibility = View.GONE

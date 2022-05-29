@@ -7,5 +7,7 @@
     <string name="tutorial">Tutorial</string>
     <string name="history">History</string>
     <string name="solutions">Solutions</string>
-    <string name="test">Yes or No</string>
+    <string name="yes_or_no_header">Yes or No</string>
+    <string name="coin_header">Coin</string>
+    <string name="dice_header">Dice</string>
 </resources>

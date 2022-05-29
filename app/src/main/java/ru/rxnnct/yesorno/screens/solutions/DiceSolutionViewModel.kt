@@ -1,19 +1,20 @@
 package ru.rxnnct.yesorno.screens.solutions
 
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import ru.rxnnct.yesorno.model.SolutionResult
 import ru.rxnnct.yesorno.model.SolutionResultRepository
 import ru.rxnnct.yesorno.model.SolutionType
 import kotlin.random.Random
 
-class YesNoSolutionViewModel(repository: SolutionResultRepository) :
+class DiceSolutionViewModel(repository: SolutionResultRepository) :
     BaseSolutionViewModel(repository) {
 
     var question = ""
 
     override fun solve() {
-        result = "${Random.nextBoolean()}"
-        val solutionResult = SolutionResult(SolutionType.YES_OR_NO.solutionName, question, result)
+        result = "${(1..6).random()}"
+        val solutionResult = SolutionResult(SolutionType.DICE.solutionName, question, result)
         insert(solutionResult)
     }
 
@@ -24,12 +25,12 @@ class YesNoSolutionViewModel(repository: SolutionResultRepository) :
 }
 
 // TODO: extract to base
-class YesNoSolutionViewModelFactory(private val repository: SolutionResultRepository) :
+class DiceSolutionViewModelFactory(private val repository: SolutionResultRepository) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(YesNoSolutionViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(DiceSolutionViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return YesNoSolutionViewModel(repository) as T
+            return DiceSolutionViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

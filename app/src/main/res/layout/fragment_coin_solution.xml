@@ -6,17 +6,27 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/fragmentYesOrNoSolution"
+        android:id="@+id/fragmentCoinSolution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/yes_or_no_header"
+        android:text="@string/coin_header"
         android:textSize="72sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/question_head_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Head:"
+        app:layout_constraintBottom_toTopOf="@+id/question_head"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentCoinSolution" />
+
     <EditText
-        android:id="@+id/question"
+        android:id="@+id/question_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -27,7 +37,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentYesOrNoSolution" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentCoinSolution" />
+
+    <TextView
+        android:id="@+id/question_tail_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tail:"
+        app:layout_constraintBottom_toTopOf="@+id/question_tail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question_head" />
+
+    <EditText
+        android:id="@+id/question_tail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="Question here"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question_head" />
 
     <Button
         android:id="@+id/solve"
@@ -38,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question" />
+        app:layout_constraintTop_toBottomOf="@+id/question_tail" />
 
     <TextView
         android:id="@+id/result"
@@ -48,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentYesOrNoSolution"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentCoinSolution"
         tools:text="result"
         tools:visibility="visible" />
 
